@@ -4,7 +4,8 @@ from matplotlib import pyplot,image
 import math
 
 coordinates = []
-image = cv2.imread('images/a.jpg')
+image = cv2.imread('images/testR.jpg')
+image = cv2.flip(image,0);
 grayscale = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 ret,binimage = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
 
