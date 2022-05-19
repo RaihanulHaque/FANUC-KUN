@@ -1,9 +1,16 @@
+from skeleton import coordinates
 from tkinter import *
-import textCoordinate
-root = Tk()
-myCanvas = Canvas(root)
-myCanvas.config(width=500, height=500)
-myCanvas.pack()
+import time
+
+
+window = Tk()   # Create Window object
+
+WIDTH = 500
+HEIGHT = 500
+
+canvas = Canvas(window, width=WIDTH, height=HEIGHT)  # Creating Canvas
+
+canvas.pack()
 
 
 def create_circle(x, y, r, canvasName):  # center coordinates, radius
@@ -14,8 +21,10 @@ def create_circle(x, y, r, canvasName):  # center coordinates, radius
     return canvasName.create_oval(x0, y0, x1, y1, fill="#000")
 
 
-coordinates = textCoordinate.generateCoordinates()
+# coordinates = abrar.generateCoordinates()
 for coordinate in coordinates:
-    create_circle(coordinate[0], coordinate[1], 1, myCanvas)
+    create_circle(coordinate[0], coordinate[1], 1, canvas)
+    window.update()
+    time.sleep(0.01)
 
-root.mainloop()
+window.mainloop()
